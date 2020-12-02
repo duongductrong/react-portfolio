@@ -1,0 +1,24 @@
+@import "../../sass/mixins/grid";
+
+.about-me {
+  max-width: 800px;
+  margin: 0 auto;
+  .about-title {
+    font-weight: bold;
+  }
+
+  .about-description {
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .about-separate {
+    margin: 2rem 0;
+  }
+
+  .about-education {
+    margin-bottom: 1.5rem;
+  }
+
+  @include _mGrid("row", 12, 16, (678));
+}

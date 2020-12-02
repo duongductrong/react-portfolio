@@ -1,0 +1,48 @@
+@mixin _mCol($col, $column, $gap, $resolution: "false") {
+  @if ($resolution == "false") {
+    .col-#{$col} {
+      max-width: (100% / $column) * $col;
+      width: calc(calc((100% / #{$column}) * #{$col}) - #{$gap * 2}px);
+      padding: 0px #{$gap}px;
+      margin-bottom: #{$gap * 2}px;
+    }
+  } @else {
+    .col-#{$resolution}-#{$col} {
+      max-width: (100% / $column) * $col;
+      width: calc(calc((100% / #{$column}) * #{$col}) - #{$gap * 2}px);
+      padding: 0px #{$gap}px;
+      margin-bottom: #{$gap * 2}px;
+    }
+  }
+}
+
+@mixin _mGrid(
+  $name: "row",
+  $column: 12,
+  $gap: 8,
+  $resolutions: (
+    768,
+    1366,
+  )
+) {
+  .#{$name} {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-left: -#{$gap}px;
+    margin-right: -#{$gap}px;
+    padding: 0;
+
+    @for $col from 1 through $column {
+      @include _mCol($col, $column, $gap, "false");
+    }
+
+    @each $resolution in $resolutions {
+      @for $col from 1 through $column {
+        @media screen and (min-width: #{$resolution}px) {
+          @include _mCol($col, $column, $gap, $resolution);
+        }
+      }
+    }
+  }
+}

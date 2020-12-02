@@ -1,0 +1,7 @@
+.image-component {
+    object-fit: contain;
+
+    &.fullWidth {
+        width: 100%;
+    }
+}

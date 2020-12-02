@@ -1,0 +1,42 @@
+@import "../../../sass/variables";
+@import "../../../sass/animations";
+
+.loading {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: $black;
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    color: $light;
+    fill: currentColor;
+    height: auto;
+    max-width: 66vmin;
+    transform-origin: center;
+    width: 15%;
+
+    animation: rotateCircle 5s linear infinite;
+  }
+
+  .percent {
+    position: absolute;
+    color: $light;
+    font-size: 2.083vw;
+    
+    &::after {
+      content: "❛";
+      position: absolute;
+      top: -10px;
+      left: -15px;
+      width: 10px;
+      height: 10px;
+    }
+  }
+}
