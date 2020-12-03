@@ -1,39 +1,66 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
+import { TimelineLite } from "gsap";
 import "./About.scss";
 import Typography from "../../components/Dumb/Typography/Typography";
 import Separate from "../../components/Dumb/Sepeate/Separate";
+import Loading from "../../components/Dumb/Loading/Loading";
+import Progress from "../../components/Dumb/Progress/Progress";
+import { useHistory } from "react-router-dom";
 
 function About() {
+  const timeline = new TimelineLite();
+  const aboutRef = useRef(null);
+  const history = useHistory();
+
+  useEffect(() => {
+    timeline.fromTo(
+      aboutRef.current,
+      {
+        opacity: 0,
+        duration: 1,
+      },
+      {
+        opacity: 1,
+        duration: 1,
+      }
+    );
+  }, []);
+
+  const nextAbout = () => {
+    timeline.reverse().then(() => {
+      history.push("/work");
+    });
+  };
+
   return (
-    <div className="about-me">
+    <div className="about-me" ref={aboutRef}>
       <Typography className="about-title" variant="h3">
         Who i am?
       </Typography>
 
       <Typography variant="p" className="about-description">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-        mollit anim id est laborum.
+        Là một sinh viên sắp ra trường, mình có sở thích cũng như mọi người hay
+        gọi là đam mê với lập trình, mình bắt đầu tìm hiểu và trau dồi kiến thức
+        từ cuối năm 18 tuổi. Thích làm gì đó đẹp mà lại còn theo đuổi ngành lập
+        trình, vậy nên mình định hướng làm Frontend Developer. Mong muốn trau
+        dồi thêm kiến thức bổ ích về UX/UI để tăng lợi ích sản phẩm mình mang
+        lại cho người dùng phía lập trình Frontend.
       </Typography>
 
       <Typography variant="p" className="about-description">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-        mollit anim id est laborum.
+        Hiện tại, mình đang làm việc với ngôn ngữ JavaScript hướng Frontend với
+        các kỹ năng sử dụng VanillaJS, Framework Vue, React và PHP hướng Backend
+        (Sử dụng Framework Laravel để xây dựng). Mình có kinh nghiệm sử dụng
+        công nghệ JavaScript trên 1 năm và 6 tháng sử dụng Php/Laravel để xây
+        dựng Website. Nắm sơ lược các kiến thức nền tảng về Web development để
+        đáp ứng nhu cầu xây dựng website của khách hàng. Có khả năng thuyết
+        trình cơ bản và kiến thức để làm việc nhóm.
       </Typography>
 
       <Separate variant="dashed" className="about-separate" />
 
       <Typography
-        className="about-education"
+        className="about-typo"
         variant="h5"
         fontWeight="lighter"
         block
@@ -62,7 +89,7 @@ function About() {
       <Separate variant="dashed" className="about-separate" />
 
       <Typography
-        className="about-education"
+        className="about-typo"
         variant="h5"
         fontWeight="lighter"
         block
@@ -110,6 +137,83 @@ function About() {
             Frontend và Backend Developement
           </Typography>
         </div>
+      </div>
+
+      <Loading percent={20} text="Twenty year old" />
+
+      <Typography
+        className="about-typo"
+        variant="h5"
+        fontWeight="lighter"
+        block
+      >
+        CODE SKILL
+      </Typography>
+
+      <div className="about-space-bottom">
+        <Typography variant="span" fontWeight="lighter" block>
+          JavaScript
+        </Typography>
+        <Progress progress={75} />
+      </div>
+
+      <div className="about-space-bottom">
+        <Typography variant="span" fontWeight="lighter" block>
+          React / Vue
+        </Typography>
+        <Progress progress={60} />
+      </div>
+
+      <div className="about-space-bottom">
+        <Typography variant="span" fontWeight="lighter" block>
+          Gsap / Animation
+        </Typography>
+        <Progress progress={45} />
+      </div>
+
+      <div className="about-space-bottom">
+        <Typography variant="span" fontWeight="lighter" block>
+          HTML5 / CSS3
+        </Typography>
+        <Progress progress={70} />
+      </div>
+
+      <div className="about-space-bottom">
+        <Typography variant="span" fontWeight="lighter" block>
+          Design Patterns
+        </Typography>
+        <Progress progress={30} />
+      </div>
+
+      <Typography
+        className="about-typo"
+        variant="h5"
+        fontWeight="lighter"
+        block
+      >
+        SOFT SKILL
+      </Typography>
+
+      <div className="about-space-bottom">
+        <Typography variant="span" fontWeight="lighter" block>
+          Teamwork
+        </Typography>
+        <Progress progress={50} />
+      </div>
+
+      <div className="about-space-bottom">
+        <Typography variant="span" fontWeight="lighter" block>
+          Presentation
+        </Typography>
+        <Progress progress={50} />
+      </div>
+
+      <Separate variant="dashed" className="about-separate" />
+
+      <div className="about-next-route">
+        <Typography onClick={nextAbout} variant="span" block>
+        💻 Work
+        </Typography>
       </div>
     </div>
   );

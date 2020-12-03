@@ -3,6 +3,14 @@
 .about-me {
   max-width: 800px;
   margin: 0 auto;
+  opacity: 0;
+  
+  .about-next-route {
+    cursor: pointer;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
   .about-title {
     font-weight: bold;
   }
@@ -16,7 +24,11 @@
     margin: 2rem 0;
   }
 
-  .about-education {
+  .about-typo {
+    margin-bottom: 1.5rem;
+  }
+
+  .about-space-bottom {
     margin-bottom: 1.5rem;
   }
 

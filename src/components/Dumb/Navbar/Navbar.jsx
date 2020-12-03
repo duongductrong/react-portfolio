@@ -11,7 +11,7 @@ function Navbar() {
 
   const onChangeShow = () => {
     setShow(!show);
-  }
+  };
 
   useEffect(() => {
     document.documentElement.style.setProperty(
@@ -32,11 +32,21 @@ function Navbar() {
 
       <div className={classNames("navbar-items")}>
         <div className="overlay">
-          <Link onClick={onChangeShow} to="/about">About</Link>
+          <Link onClick={onChangeShow} to="/">
+            Home
+          </Link>
         </div>
 
         <div className="overlay">
-          <Link onClick={onChangeShow} to="/about">Expertise</Link>
+          <Link onClick={onChangeShow} to="/about">
+            About
+          </Link>
+        </div>
+
+        <div className="overlay">
+          <Link onClick={onChangeShow} to="/work">
+            Work
+          </Link>
         </div>
       </div>
     </div>

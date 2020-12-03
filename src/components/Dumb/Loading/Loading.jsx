@@ -1,13 +1,16 @@
 import React from "react";
+import PropTypes from "prop-types";
+import classNames from "classnames";
 import "./Loading.scss";
 
 function Loading({
   percent = 10,
   text = "Coding builder, wait a second",
+  fixed,
   ...props
 }) {
   return (
-    <div className="loading" {...props}>
+    <div className={classNames("loading", { fixed: fixed })} {...props}>
       <svg viewBox="0 0 100 100" width="100" height="100">
         <defs>
           <path
@@ -28,5 +31,17 @@ function Loading({
     </div>
   );
 }
+
+Loading.defaultProps = {
+  percent: 10,
+  text: "Coding builder, wait a second",
+  fixed: false,
+};
+
+Loading.propTypes = {
+  percent: PropTypes.number,
+  text: PropTypes.string,
+  fixed: PropTypes.bool,
+};
 
 export default Loading;

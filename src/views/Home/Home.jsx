@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import Typography from "../../components/Dumb/Typography/Typography";
 import Picture from "../../components/Dumb/Picture/Picture";
 import { TimelineLite } from "gsap";
@@ -11,7 +11,6 @@ import { useHistory } from "react-router-dom";
 function Home() {
   const timelineInstance = new TimelineLite();
 
-  const refTimeline = useRef(null);
   const history = useHistory();
   const nameRef = useRef(null);
   const jobRef = useRef(null);
@@ -47,16 +46,19 @@ function Home() {
   }, []);
 
   const nextAbout = () => {
-    timelineInstance.reverse().duration(1).then(() => {
-      history.push("/about");
-    });
+    timelineInstance
+      .reverse()
+      .duration(1.5)
+      .then(() => {
+        history.push("/about");
+      });
   };
 
   return (
     <div className="home-page">
       <div className="home-next-route">
         <Typography onClick={nextAbout} variant="span">
-        😎 Who i am ➫
+          ▶ Who i am
         </Typography>
       </div>
 
