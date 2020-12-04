@@ -39,7 +39,7 @@ Loading.defaultProps = {
 };
 
 Loading.propTypes = {
-  percent: PropTypes.number,
+  percent: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   text: PropTypes.string,
   fixed: PropTypes.bool,
 };

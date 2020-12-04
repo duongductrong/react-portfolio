@@ -1,15 +1,20 @@
 import React from "react";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 import "./Progress.scss";
 
-function Progress({ progress, ...props }) {
+function Progress({ progress, reF, ...props }) {
   return (
-    <div {...props} className="progress" style={{ width: `${progress}%` }}></div>
+    <div
+      ref={reF}
+      {...props}
+      className="progress"
+      style={{ width: `${progress}%` }}
+    ></div>
   );
 }
 
 Progress.propTypes = {
-    progress: PropTypes.number
-}
+  progress: PropTypes.number,
+};
 
 export default Progress;

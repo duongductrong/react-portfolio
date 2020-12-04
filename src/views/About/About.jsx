@@ -1,16 +1,26 @@
 import React, { useEffect, useRef } from "react";
-import { TimelineLite } from "gsap";
+import { gsap, TimelineLite } from "gsap";
 import "./About.scss";
 import Typography from "../../components/Dumb/Typography/Typography";
 import Separate from "../../components/Dumb/Sepeate/Separate";
 import Loading from "../../components/Dumb/Loading/Loading";
 import Progress from "../../components/Dumb/Progress/Progress";
 import { useHistory } from "react-router-dom";
+import ScrollTrigger from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 function About() {
   const timeline = new TimelineLite();
   const aboutRef = useRef(null);
   const history = useHistory();
+  const jsRef = useRef(null);
+  const reactRef = useRef(null);
+  const gsapRef = useRef(null);
+  const htmlcssRef = useRef(null);
+  const designPatternsRef = useRef(null);
+  const teamworkRef = useRef(null);
+  const presentationRef = useRef(null);
 
   useEffect(() => {
     timeline.fromTo(
@@ -24,6 +34,55 @@ function About() {
         duration: 1,
       }
     );
+
+    gsap.to(jsRef.current, {
+      scrollTrigger: {
+        trigger: jsRef.current,
+      },
+      width: "75%",
+    });
+
+    gsap.to(reactRef.current, {
+      scrollTrigger: {
+        trigger: reactRef.current,
+      },
+      width: "45%",
+    });
+
+    gsap.to(gsapRef.current, {
+      scrollTrigger: {
+        trigger: gsapRef.current,
+      },
+      width: "50%",
+    });
+
+    gsap.to(htmlcssRef.current, {
+      scrollTrigger: {
+        trigger: htmlcssRef.current,
+      },
+      width: "70%",
+    });
+
+    gsap.to(designPatternsRef.current, {
+      scrollTrigger: {
+        trigger: designPatternsRef.current,
+      },
+      width: "30%",
+    });
+
+    gsap.to(teamworkRef.current, {
+      scrollTrigger: {
+        trigger: teamworkRef.current,
+      },
+      width: "50%",
+    });
+
+    gsap.to(presentationRef.current, {
+      scrollTrigger: {
+        trigger: presentationRef.current,
+      },
+      width: "50%",
+    });
   }, []);
 
   const nextAbout = () => {
@@ -154,35 +213,35 @@ function About() {
         <Typography variant="span" fontWeight="lighter" block>
           JavaScript
         </Typography>
-        <Progress progress={75} />
+        <Progress reF={jsRef} progress={0} />
       </div>
 
       <div className="about-space-bottom">
         <Typography variant="span" fontWeight="lighter" block>
           React / Vue
         </Typography>
-        <Progress progress={60} />
+        <Progress reF={reactRef} progress={0} />
       </div>
 
       <div className="about-space-bottom">
         <Typography variant="span" fontWeight="lighter" block>
           Gsap / Animation
         </Typography>
-        <Progress progress={45} />
+        <Progress reF={gsapRef} progress={0} />
       </div>
 
       <div className="about-space-bottom">
         <Typography variant="span" fontWeight="lighter" block>
           HTML5 / CSS3
         </Typography>
-        <Progress progress={70} />
+        <Progress reF={htmlcssRef} progress={0} />
       </div>
 
       <div className="about-space-bottom">
         <Typography variant="span" fontWeight="lighter" block>
           Design Patterns
         </Typography>
-        <Progress progress={30} />
+        <Progress reF={designPatternsRef} progress={0} />
       </div>
 
       <Typography
@@ -198,21 +257,21 @@ function About() {
         <Typography variant="span" fontWeight="lighter" block>
           Teamwork
         </Typography>
-        <Progress progress={50} />
+        <Progress reF={teamworkRef} progress={0} />
       </div>
 
       <div className="about-space-bottom">
         <Typography variant="span" fontWeight="lighter" block>
           Presentation
         </Typography>
-        <Progress progress={50} />
+        <Progress reF={presentationRef} progress={0} />
       </div>
 
       <Separate variant="dashed" className="about-separate" />
 
       <div className="about-next-route">
         <Typography onClick={nextAbout} variant="span" block>
-        💻 Work
+          💻 Work
         </Typography>
       </div>
     </div>
