@@ -45,7 +45,7 @@ function Navbar() {
 
         <div className="overlay">
           <Link onClick={onChangeShow} to="/work">
-            Work
+          Works
           </Link>
         </div>
       </div>

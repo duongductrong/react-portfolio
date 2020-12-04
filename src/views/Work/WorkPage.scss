@@ -1,3 +1,18 @@
+@import "../../sass/mixins/grid";
+
 .works {
-    
+  max-width: 700px;
+  margin: 0 auto;
+
+  @include _mGrid("row", 12, 8, (768, 1366));
+
+  .row {
+    margin-top: 2rem;
+  }
+
+  a {
+    color: var(--light);
+    text-decoration: none;
+    border-bottom: 1px dashed var(--light);
+  }
 }
