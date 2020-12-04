@@ -37,6 +37,8 @@ function About() {
 
     gsap.to(jsRef.current, {
       scrollTrigger: {
+        // markers: true,
+        start: "20px 96%",
         trigger: jsRef.current,
       },
       width: "75%",
@@ -44,6 +46,8 @@ function About() {
 
     gsap.to(reactRef.current, {
       scrollTrigger: {
+        // markers: true,
+        start: "20px 96%",
         trigger: reactRef.current,
       },
       width: "45%",
@@ -51,6 +55,8 @@ function About() {
 
     gsap.to(gsapRef.current, {
       scrollTrigger: {
+        // markers: true,
+        start: "20px 96%",
         trigger: gsapRef.current,
       },
       width: "50%",
@@ -58,6 +64,8 @@ function About() {
 
     gsap.to(htmlcssRef.current, {
       scrollTrigger: {
+        // markers: true,
+        start: "20px 96%",
         trigger: htmlcssRef.current,
       },
       width: "70%",
@@ -65,6 +73,8 @@ function About() {
 
     gsap.to(designPatternsRef.current, {
       scrollTrigger: {
+        // markers: true,
+        start: "20px 96%",
         trigger: designPatternsRef.current,
       },
       width: "30%",
@@ -72,6 +82,8 @@ function About() {
 
     gsap.to(teamworkRef.current, {
       scrollTrigger: {
+        // markers: true,
+        start: "20px 96%",
         trigger: teamworkRef.current,
       },
       width: "50%",
@@ -79,6 +91,8 @@ function About() {
 
     gsap.to(presentationRef.current, {
       scrollTrigger: {
+        // markers: true,
+        start: "20px 96%",
         trigger: presentationRef.current,
       },
       width: "50%",
