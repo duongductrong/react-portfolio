@@ -84,3 +84,25 @@
     }
   }
 }
+
+@media screen and(max-width: 1366px) {
+  .navbar .navbar-items .overlay {
+    margin-right: 5rem;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .navbar .navbar-items .overlay {
+    margin-right: 0;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 698px) {
+  .navbar .navbar-items .overlay {
+    a {
+      font-size: 4.5rem;
+    }
+  }
+}

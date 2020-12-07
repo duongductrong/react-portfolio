@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { TimelineLite } from "gsap";
+import { gsap, TimelineLite } from "gsap";
 import "./WorkPage.scss";
 
 import Typography from "../../components/Dumb/Typography/Typography";
@@ -69,17 +69,17 @@ function WorkPage() {
 
   useEffect(() => {
     document.querySelectorAll(".col-12").forEach((item, i) => {
-      timeline.fromTo(
+      gsap.fromTo(
         item,
         {
-          yPercent: 25,
+          yPercent: 100,
           opacity: 0,
-          duration: 0.3,
+          duration: 0.25 * i,
         },
         {
           yPercent: 0,
           opacity: 1,
-          duration: 0.3,
+          duration: 0.25 * i,
         }
       );
     });
