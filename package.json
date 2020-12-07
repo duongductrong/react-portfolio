@@ -16,11 +16,7 @@
     "react-scripts": "4.0.1",
     "web-vitals": "^0.2.4"
   },
-  "rc-generate": {
-    "baseUrl": "src",
-    "typescript": false,
-    "reactNative": false
-  },
+
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
